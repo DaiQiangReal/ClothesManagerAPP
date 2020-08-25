@@ -91,13 +91,22 @@
                     </div>
                     <van-button
                         block
+                        class="modify-button"
                         @click="detailButtonClicked"
                         :loading="buttonLoading"
                         loading-text="修改中"
                         loading-type="spinner"
                         :type="notEditable?'info':'primary'"
                         size="large"
+                        round
                     >{{notEditable?'修改属性':'保存修改'}}</van-button>
+                    <van-button type="danger"
+                    class="delete-button"
+                    block
+                    size="large"
+                    round
+                    @click="onDeleteButtonClicked"
+                    >删除</van-button>
                 </div>
             </van-popup>
         </div>
@@ -203,6 +212,12 @@ export default {
                 this.oldClothProps=JSON.parse(JSON.stringify(this.clickClothProps))
             }
         },
+        async onDeleteButtonClicked(){
+            await this.$store.dispatch('deleteCloth',this.clickClothProps.clothID);
+            this.detailPopupShow=false;
+            let toast=Toast.success("已删除");
+            setTimeout(()=>toast.clear(),800);
+        }
     },
     computed: {
         clothObjectList() {
@@ -220,5 +235,6 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "./css/Storage.scss";
 </style>

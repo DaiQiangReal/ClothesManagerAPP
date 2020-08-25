@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-16 23:54:07
+ * @LastEditTime: 2020-08-25 14:07:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/MainComponent.vue
@@ -23,7 +23,7 @@
     </div>
     <div
       id="user-chose-button"
-      :style="{ boxShadow:'0px 0px 20px 3px '+ btnShadowColor }"
+      :style="{boxShadow:'0px 1px '+btnShadowBlur+'px 1px green'}"
       @click="onUserChoseButtonClicked"
     >
       <span>选定今日搭配</span>
@@ -40,26 +40,21 @@ export default {
   name: "MainComponent",
   data() {
     return {
-      btnShadowColor: "green",
+    btnShadowBlur:3,
       userChosedCloth:{}
     };
   },
   components: { Weather, ClothChoser },
   created() {
-    setInterval(this.flashColor, 1000);
+    setInterval(()=>{
+        if(this.btnShadowBlur===25){
+            this.btnShadowBlur=1;
+        }else{
+            this.btnShadowBlur=25;
+        }
+    }, 1000);
   },
   methods: {
-    flashColor() {
-      let color =
-        "rgb(" +
-        getRandomInt(0, 255) +
-        "," +
-        getRandomInt(0, 255) +
-        "," +
-        getRandomInt(0, 255) +
-        ")";
-      this.btnShadowColor = color;
-    },
     onUserChoseCloth(clothClass,clothObject){
         this.userChosedCloth[clothClass]=clothObject;
     },

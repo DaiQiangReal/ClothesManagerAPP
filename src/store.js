@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-25 13:22:32
+ * @LastEditTime: 2020-08-25 14:32:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/store.js
@@ -28,6 +28,11 @@ const store = new Vuex.Store({
         let state=context.state;
         state.clothesObjectList=await this.state.clothesStorageHandle.getClothesList();
         console.log("vuex",await this.state.clothesStorageHandle.getClothesList());
+    },
+    async deleteCloth(context,clothID){
+        let {dispatch}=context;
+        await this.state.clothesStorageHandle.deleteCloth(clothID);
+        dispatch("flashClothStorage")
     },
     async flashClothStorage(context){
         let state=context.state;
