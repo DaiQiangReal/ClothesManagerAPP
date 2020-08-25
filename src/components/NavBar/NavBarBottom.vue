@@ -1,3 +1,11 @@
+<!--
+ * @Author: 代强
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-25 20:34:39
+ * @LastEditors: 代强
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/components/NavBar/NavBarBottom.vue
+-->
 <template>
     <div id="nav-bar-bottom">
         <div id="today" class="nav-item" @click="()=>navItemClicked(0)">
@@ -52,6 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 #nav-bar-bottom {
+    z-index: 99999;
     position: fixed;
     bottom: 0;
     height: 7vh;

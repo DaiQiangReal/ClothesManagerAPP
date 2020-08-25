@@ -1,3 +1,11 @@
+<!--
+ * @Author: 代强
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-25 20:34:28
+ * @LastEditors: 代强
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/components/NavBar/NavBarTop.vue
+-->
 <template>
     <div id="nav-bar-top">
         <div id="title" v-text="title" />
@@ -22,6 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 #nav-bar-top {
+    z-index: 999999;
     position: fixed;
     width: 100vw;
     height: 6vh;
