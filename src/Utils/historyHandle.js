@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-23 19:53:18
+ * @LastEditTime: 2020-08-25 17:09:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/Utils/historyHandle.js
@@ -16,11 +16,8 @@ class HistoryHandle{
     }
 
     async _loadHistory(){
-        if(this.history)
-            return
         let history;
         try{
-            
             history=JSON.parse(await this.fileoperator.fileRead(this.historyFileName));
            
         }catch(e){
@@ -35,22 +32,25 @@ class HistoryHandle{
     }
 
     async getHistory(){
-        await this._loadHistory();
+        if(!this.history)
+            await this._loadHistory();
         return this.history;
     }
     
     async addHistory(historyObject){
-   
-        await this._loadHistory();
-        console.log('test',this.history);
+        if(!this.history)
+            await this._loadHistory();
         this.history[historyObject.unixTime]=historyObject;
         await this.fileoperator.fileWrite(this.historyFileName,JSON.stringify(this.history));
+        await this._loadHistory();
     }
 
     async deleteHistory(historyID){
-        await this._loadHistory();
-        delete this.history.data[historyID];
+        if(!this.history)
+            await this._loadHistory();
+        delete this.history[historyID];
         await this.fileoperator.fileWrite(this.historyFileName,JSON.stringify(this.history));
+        await this._loadHistory();
     }
 }
 

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-25 14:32:15
+ * @LastEditTime: 2020-08-25 20:09:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/store.js
@@ -27,7 +27,7 @@ const store = new Vuex.Store({
     async loadClothStorage(context){
         let state=context.state;
         state.clothesObjectList=await this.state.clothesStorageHandle.getClothesList();
-        console.log("vuex",await this.state.clothesStorageHandle.getClothesList());
+        
     },
     async deleteCloth(context,clothID){
         let {dispatch}=context;
@@ -43,7 +43,12 @@ const store = new Vuex.Store({
     async loadHistory(context){
         let state=context.state;
         let dispatch=context.dispatch;
-        state.history=await state.HistoryHandle.getHistory();
+        state.history=await state.historyHandle.getHistory();
+    },
+    async deleteHistory(context,historyID){
+        let {dispatch}=context;
+        await this.state.historyHandle.deleteHistory(historyID);
+        await dispatch('loadHistory');
     },
     async flashHistory(context){
         let state=context.state;
