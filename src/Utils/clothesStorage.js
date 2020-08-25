@@ -1,8 +1,8 @@
 /*
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-17 00:02:47
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-08-25 13:28:15
+ * @LastEditors: 代强
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/Utils/clothesStorage.js
  */
@@ -43,6 +43,7 @@ class ClothesStorageHandle {
         clothData.data[this.clothProps.clothID]=this.clothProps;
         await this.fileoperator.fileWrite(this.clothesDataFileName,JSON.stringify(clothData));
         await cloth.saveImageBase64(cloth.imageBase64);
+        await this._readClothData();
     }
 
     async getClothesList(){
@@ -76,6 +77,7 @@ class ClothesStorageHandle {
         await this.fileoperator.fileWrite(this.clothesDataFileName,JSON.stringify(clothData));
         let fileoperator=new fileOperator();
         await fileoperator.fileDelete(clothID+".base64");
+        await this._readClothData();
     }
     
 

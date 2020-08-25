@@ -214,7 +214,7 @@ export default {
     },
     watch: {
         clothObjectList(newVal) {
-            console.log('test',newVal);
+            console.log('storage flashed',newVal);
         },
     },
 };

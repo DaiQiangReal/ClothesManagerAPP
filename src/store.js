@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-16 22:29:49
- * @LastEditors: your name
+ * @LastEditTime: 2020-08-25 13:22:32
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/store.js
  */
@@ -27,13 +27,12 @@ const store = new Vuex.Store({
     async loadClothStorage(context){
         let state=context.state;
         state.clothesObjectList=await this.state.clothesStorageHandle.getClothesList();
-        console.log('fuckkkkkkkkkkkkkkkk',state.clothesObjectList);
-        
+        console.log("vuex",await this.state.clothesStorageHandle.getClothesList());
     },
     async flashClothStorage(context){
         let state=context.state;
         let dispatch=context.dispatch;
-        setTimeout(()=>dispatch('loadClothStorage'),2000)
+        await dispatch('loadClothStorage');
    
     },
     async loadHistory(context){
@@ -41,10 +40,10 @@ const store = new Vuex.Store({
         let dispatch=context.dispatch;
         state.history=await state.HistoryHandle.getHistory();
     },
-    flashHistory(context){
+    async flashHistory(context){
         let state=context.state;
         let dispatch=context.dispatch;
-        dispatch('loadHistory')
+        await dispatch('loadHistory')
     }
   }
 })

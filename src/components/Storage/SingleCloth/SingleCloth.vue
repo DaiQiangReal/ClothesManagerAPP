@@ -1,8 +1,8 @@
 <!--
- * @Author: your name
+ * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-23 17:42:32
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-08-25 12:52:38
+ * @LastEditors: 代强
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/Storage/SingleCloth/SingleCloth.vue
 -->

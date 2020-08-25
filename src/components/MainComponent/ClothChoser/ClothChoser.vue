@@ -1,14 +1,15 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-16 00:31:34
- * @LastEditTime: 2020-08-23 17:39:45
+ * @LastEditTime: 2020-08-25 13:12:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/ClothChoser/ClothChoser.vue
 -->
 <template>
   <div>
-    <SingleCloth
+      <SingleCloth
+      v-if="clothObjectList.length>0"
       :clothObject="clothObjectList[chosedIndex]"
       @click.native="onChoserClicked"
       @click.stop
@@ -50,6 +51,8 @@ export default {
     };
   },
   mounted() {
+      if(this.clothObjectList.length===0)
+        this.$store.dispatch('loadClothStorage');
     this.onUserChoseCloth(this.clothClass, this.clothObjectList[0]);
   },
   methods: {
@@ -78,11 +81,15 @@ export default {
   },
   computed: {
     clothObjectList() {
+    
       return this.$store.state.clothesObjectList.filter((clothObject) => {
         return clothObject.clothClass === this.clothClass;
       });
     },
   },
+  watch:{
+      
+  }
 };
 </script>
 

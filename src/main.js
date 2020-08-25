@@ -1,3 +1,11 @@
+/*
+ * @Author: 代强
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-23 20:25:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/main.js
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
@@ -18,11 +26,12 @@ const routes=[
     {path:'/Storage',component:Storage},
     {path:'/History',component:History},
     {path:'/Settings',component:Settings},
-    {path:'/',component:MainComponent}
+    {path:'/Main',component:MainComponent},
+    {path:'/',redirect:'/Main'}
 ]
 const router = new VueRouter({
     routes,
-    mode:'abstract'
+    mode:'hash'
   })
 new Vue({
     router,
