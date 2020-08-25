@@ -1,8 +1,8 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-23 17:14:56
- * @LastEditors: your name
+ * @LastEditTime: 2020-08-25 14:50:11
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/History/History.vue
 -->
@@ -27,7 +27,6 @@ export default {
     },
     created(){
         this.loadHistoryObjectList();
-        console.log("breforcreate");
     },
     methods:{
         async loadHistoryObjectList(){
@@ -40,7 +39,6 @@ export default {
                 return history1.unixTime-history0.unixTime;
             })
             this.historyObjectList=historyObjectList;
-            // console.log("test",historyObjectCollection);
         }
     },
     computed:{

@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-16 22:06:34
- * @LastEditTime: 2020-08-23 17:45:36
+ * @LastEditTime: 2020-08-25 15:00:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/History/SingleHistory/SingleHistory.vue
@@ -28,13 +28,16 @@
 
     <div id="image">
       <div class="cloth-image">
-        <img :src="'data:text/html;base64,' + upImageBase64" />
+        <img v-if="upImageBase64!==undefined" :src="'data:text/html;base64,' + upImageBase64" />
+        <div v-show="upImageBase64===undefined">衣物已删除</div>
       </div>
       <div class="cloth-image">
-        <img :src="'data:text/html;base64,' + downImageBase64" />
+        <img v-if="downImageBase64!==undefined" :src="'data:text/html;base64,' + downImageBase64" />
+        <div v-show="downImageBase64===undefined">衣物已删除</div>
       </div>
       <div class="cloth-image">
-        <img :src="'data:text/html;base64,' + shoesImageBase64" />
+        <img v-if="shoesImageBase64!==undefined" :src="'data:text/html;base64,' + shoesImageBase64" />
+        <div v-show="shoesImageBase64===undefined">衣物已删除</div>
       </div>
     </div>
   </div>
