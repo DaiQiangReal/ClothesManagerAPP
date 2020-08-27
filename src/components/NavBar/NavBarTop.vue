@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 #nav-bar-top {
-    z-index: 999999;
+    z-index: 1000;
     position: fixed;
     width: 100vw;
     height: 6vh;

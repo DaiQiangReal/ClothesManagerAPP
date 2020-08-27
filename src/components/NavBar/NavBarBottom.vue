@@ -1,8 +1,8 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-25 20:34:39
- * @LastEditors: 代强
+ * @LastEditTime: 2020-08-25 20:40:12
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/NavBar/NavBarBottom.vue
 -->
@@ -60,7 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 #nav-bar-bottom {
-    z-index: 99999;
+    z-index: 1000;
     position: fixed;
     bottom: 0;
     height: 7vh;

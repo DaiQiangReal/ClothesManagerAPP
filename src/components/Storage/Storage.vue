@@ -1,8 +1,50 @@
 <template>
     <div id="storage">
-        <div v-for="clothObject in this.clothObjectList" :key="clothObject.clothID">
-            <SingleCloth :clothObject="clothObject" :showClothDetail="showClothDetail" />
-        </div>
+        <van-tabs type="card" animated swipeable>
+            <van-tab title="上装"
+                ><div
+                    v-for="clothObject in this.upClothObjectList"
+                    :key="clothObject.clothID"
+                >
+                    <SingleCloth
+                        :clothObject="clothObject"
+                        :showClothDetail="showClothDetail"
+                    /></div
+            ></van-tab>
+            <van-tab title="下装"
+                >
+                <div
+                    v-for="clothObject in this.downClothObjectList"
+                    :key="clothObject.clothID"
+                >
+                    <SingleCloth
+                        :clothObject="clothObject"
+                        :showClothDetail="showClothDetail"
+                    /></div
+            ></van-tab>
+            <van-tab title="鞋子"
+                >
+                <div
+                    v-for="clothObject in this.shoesClothObjectList"
+                    :key="clothObject.clothID"
+                >
+                    <SingleCloth
+                        :clothObject="clothObject"
+                        :showClothDetail="showClothDetail"
+                    /></div
+            ></van-tab>
+            <van-tab title="全部">
+                <div
+                    v-for="clothObject in this.clothObjectList"
+                    :key="clothObject.clothID"
+                >
+                    <SingleCloth
+                        :clothObject="clothObject"
+                        :showClothDetail="showClothDetail"
+                    />
+                </div>
+            </van-tab>
+        </van-tabs>
 
         <div id="detail-popup">
             <van-popup
@@ -10,7 +52,7 @@
                 round
                 closeable
                 position="center"
-                :style="{ height: '90vh',width:'90vw'}"
+                :style="{ height: '90vh', width: '90vw' }"
             >
                 <div id="cloth-props-popup-window">
                     <span id="title">衣物详情</span>
@@ -40,7 +82,11 @@
                     </div>
                     <div id="color" class="cloth-props">
                         <span class="props-title">颜色</span>
-                        <input type="color" v-model="clickClothProps.color" :disabled="notEditable" />
+                        <input
+                            type="color"
+                            v-model="clickClothProps.color"
+                            :disabled="notEditable"
+                        />
                     </div>
                     <div id="suit-weather" class="cloth-props">
                         <span class="props-title">适用天气</span>
@@ -49,12 +95,24 @@
                             direction="horizontal"
                             :disabled="notEditable"
                         >
-                            <van-checkbox shape="square" name="晴天">晴天</van-checkbox>
-                            <van-checkbox shape="square" name="烈日">烈日</van-checkbox>
-                            <van-checkbox shape="square" name="阴天">阴天</van-checkbox>
-                            <van-checkbox shape="square" name="雨天">雨天</van-checkbox>
-                            <van-checkbox shape="square" name="雾天">雾天</van-checkbox>
-                            <van-checkbox shape="square" name="雪天">雪天</van-checkbox>
+                            <van-checkbox shape="square" name="晴天"
+                                >晴天</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="烈日"
+                                >烈日</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="阴天"
+                                >阴天</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="雨天"
+                                >雨天</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="雾天"
+                                >雾天</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="雪天"
+                                >雪天</van-checkbox
+                            >
                         </van-checkbox-group>
                     </div>
                     <div id="suit-temp" class="cloth-props">
@@ -73,11 +131,21 @@
                             direction="horizontal"
                             :disabled="notEditable"
                         >
-                            <van-checkbox shape="square" name="学习">学习</van-checkbox>
-                            <van-checkbox shape="square" name="工作">工作</van-checkbox>
-                            <van-checkbox shape="square" name="会议">会议</van-checkbox>
-                            <van-checkbox shape="square" name="运动">运动</van-checkbox>
-                            <van-checkbox shape="square" name="休闲">休闲</van-checkbox>
+                            <van-checkbox shape="square" name="学习"
+                                >学习</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="工作"
+                                >工作</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="会议"
+                                >会议</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="运动"
+                                >运动</van-checkbox
+                            >
+                            <van-checkbox shape="square" name="休闲"
+                                >休闲</van-checkbox
+                            >
                         </van-checkbox-group>
                     </div>
                     <div id="last-wash" class="cloth-props">
@@ -96,17 +164,20 @@
                         :loading="buttonLoading"
                         loading-text="修改中"
                         loading-type="spinner"
-                        :type="notEditable?'info':'primary'"
+                        :type="notEditable ? 'info' : 'primary'"
                         size="large"
                         round
-                    >{{notEditable?'修改属性':'保存修改'}}</van-button>
-                    <van-button type="danger"
-                    class="delete-button"
-                    block
-                    size="large"
-                    round
-                    @click="onDeleteButtonClicked"
-                    >删除</van-button>
+                        >{{ notEditable ? "修改属性" : "保存修改" }}</van-button
+                    >
+                    <van-button
+                        type="danger"
+                        class="delete-button"
+                        block
+                        size="large"
+                        round
+                        @click="onDeleteButtonClicked"
+                        >删除</van-button
+                    >
                 </div>
             </van-popup>
         </div>
@@ -117,9 +188,11 @@
 import "./css/Storage.scss";
 import SingleCloth from "./SingleCloth/SingleCloth";
 import { Cloth, ClothesStorageHandle } from "../../Utils/clothesStorage";
-import { Toast } from "vant";
+import { Toast, Tab, Tabs } from "vant";
 import Vue from "vue";
 Vue.use(Toast);
+Vue.use(Tab);
+Vue.use(Tabs);
 export default {
     name: "Storage",
     components: { SingleCloth },
@@ -135,7 +208,7 @@ export default {
                 suitSituation: [],
                 imageBase64: null,
             },
-            oldClothProps:null,
+            oldClothProps: null,
             detailPopupShow: false,
             notEditable: true,
             buttonLoading: false,
@@ -158,8 +231,11 @@ export default {
         },
         async detailButtonClicked() {
             if (!this.notEditable) {
-                if(JSON.stringify(this.oldClothProps)===JSON.stringify(this.clickClothProps)){
-                    this.notEditable=true;
+                if (
+                    JSON.stringify(this.oldClothProps) ===
+                    JSON.stringify(this.clickClothProps)
+                ) {
+                    this.notEditable = true;
                     return;
                 }
                 this.buttonLoading = true;
@@ -193,7 +269,9 @@ export default {
                     this.clickClothProps.suitTemp,
                     this.clickClothProps.suitWeather,
                     this.clickClothProps.suitSituation,
-                    await this.clothesStorageHandle.getClothBase64(this.clickClothProps.clothID),
+                    await this.clothesStorageHandle.getClothBase64(
+                        this.clickClothProps.clothID
+                    ),
                     this.clickClothProps.clothID
                 );
                 let timer = setTimeout(() => {
@@ -209,27 +287,47 @@ export default {
                 this.notEditable = true;
             } else {
                 this.notEditable = false;
-                this.oldClothProps=JSON.parse(JSON.stringify(this.clickClothProps))
+                this.oldClothProps = JSON.parse(
+                    JSON.stringify(this.clickClothProps)
+                );
             }
         },
-        async onDeleteButtonClicked(){
-            await this.$store.dispatch('deleteCloth',this.clickClothProps.clothID);
-            this.detailPopupShow=false;
-            let toast=Toast.success("已删除");
-            setTimeout(()=>toast.clear(),800);
-        }
+        async onDeleteButtonClicked() {
+            await this.$store.dispatch(
+                "deleteCloth",
+                this.clickClothProps.clothID
+            );
+            this.detailPopupShow = false;
+            let toast = Toast.success("已删除");
+            setTimeout(() => toast.clear(), 800);
+        },
     },
     computed: {
         clothObjectList() {
             return this.$store.state.clothesObjectList;
         },
-        clothesStorageHandle(){
+        clothesStorageHandle() {
             return this.$store.state.clothesStorageHandle;
-        }
+        },
+        upClothObjectList() {
+            return this.clothObjectList.filter(
+                (cloth) => cloth.clothClass === "上装"
+            );
+        },
+        downClothObjectList() {
+            return this.clothObjectList.filter(
+                (cloth) => cloth.clothClass === "下装"
+            );
+        },
+        shoesClothObjectList() {
+            return this.clothObjectList.filter(
+                (cloth) => cloth.clothClass === "鞋子"
+            );
+        },
     },
     watch: {
         clothObjectList(newVal) {
-            console.log('storage flashed',newVal);
+            console.log("storage flashed", newVal);
         },
     },
 };
