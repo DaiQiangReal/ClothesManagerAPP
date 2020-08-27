@@ -14,7 +14,7 @@
             />
         </transition>
         <div id="content-view">
-            <router-view></router-view>
+            <keep-alive> <router-view></router-view></keep-alive>
         </div>
 
         <!-- <van-tabbar v-model="active">
