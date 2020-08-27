@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-16 00:31:34
- * @LastEditTime: 2020-08-27 21:27:28
+ * @LastEditTime: 2020-08-27 22:21:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/ClothChoser/ClothChoser.vue
@@ -75,7 +75,7 @@ export default {
                     setTimeout(() => {
                         toast.clear();
                         resolve();
-                    }, getRandomInt(800, 1100));
+                    }, getRandomInt(200, 500));
                 }).then(() => {
                     this.modalShow = true;
                 });
