@@ -1,3 +1,11 @@
+<!--
+ * @Author: 代强
+ * @Date: 2020-08-13 22:24:04
+ * @LastEditTime: 2020-08-27 16:57:57
+ * @LastEditors: 代强
+ * @Description: In User Settings Edit
+ * @FilePath: /ClothesManagerAPP/src/components/PlusMenu/PlusMenu.vue
+-->
 <template>
 <div id='plus-menu'>
     <div class="submenu" @click="(e)=>submenuClicked(0)">拍照</div>
@@ -9,7 +17,6 @@
 </template>
 
 <script>
-import './PlusMenu.scss'
 import takePhoto from "../../Utils/takePhoto"
 import {Cloth,ClothesStorageHandle} from "../../Utils/clothesStorage"
 import { Popup } from 'vant';
@@ -53,6 +60,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+@import "./PlusMenu.scss";
 </style>

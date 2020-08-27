@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-27 15:18:17
+ * @LastEditTime: 2020-08-27 16:56:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/NavBar/NavBarTop.vue
@@ -9,7 +9,7 @@
 <template>
     <div id="nav-bar-top">
         <div id="title" v-text="title" />
-        <div @click="rightButtonClicked" id="right-button">按钮</div>
+        <div @click="rightButtonClicked" id="right-button">+</div>
     </div>
 </template>
 
@@ -49,6 +49,7 @@ export default {
         position: absolute;
         right: 2vh;
         color: rgb(11, 135, 236);
+        font-size: 2rem;
     }
 }
 </style>
