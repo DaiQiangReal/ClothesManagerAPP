@@ -1,8 +1,8 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-25 20:34:28
- * @LastEditors: 代强
+ * @LastEditTime: 2020-08-27 15:18:17
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/NavBar/NavBarTop.vue
 -->
@@ -37,7 +37,7 @@ export default {
     text-align: center;
     line-height: 6vh;
     box-shadow: 0 0 10px 1px rgb(207, 207, 207);
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255,0.2);
     border-radius: 2px;
     backdrop-filter: blur(35px);
     #title {

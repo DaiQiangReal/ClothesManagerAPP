@@ -1,3 +1,6 @@
+*{
+    transition: background-color 0.5s;
+}
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity .3s
@@ -15,9 +18,63 @@
 }
 
 .dark-mode{
+    $darkModeColor:rgb(79, 77, 77);
+    .van-button.van-button--default.van-button--large.van-dialog__cancel{
+        background-color: $darkModeColor;
+    }
+    .van-dialog{
+        background-color: $darkModeColor !important;
+        .van-button.van-button--default.van-button--large.van-dialog__confirm{
+            background-color: $darkModeColor;
+        }
+    }
+    .van-popup.van-popup--round.van-popup--center{
+        background-color: $darkModeColor;
+        .van-icon{
+            background-color: inherit !important;
+        }
+        input{
+            background-color: inherit !important;
+        }
+        .van-stepper__plus{
+            background-color: inherit !important;
+        }
+        .van-stepper__minus{
+            background-color: inherit !important;
+        }
+        .van-checkbox__icon--checked{
+            border: 1px solid blue;
+        }
+    }
     div{
-        background-color: black;
+        // background-color: rgb(70, 70, 70);
+        color: whitesmoke;
+        #content-view,#single-history,.van-cell,.van-tab{
+            background-color: $darkModeColor;
+            color: whitesmoke;
+        }
         
+        #user-chose-button{
+            background-color: $darkModeColor !important;
+            box-shadow: white 0px 1px 25px 1px !important;
+        }
+        *{
+            color: whitesmoke !important;
+        }
+        #weather{
+            #today{
+                background-color: black;
+            }
+        }
+        #nav-bar-bottom{
+            background-color: $darkModeColor;
+        }
+        #nav-bar-top{
+            background-color: $darkModeColor;
+        }
+        .cloth-list{
+            background-color: $darkModeColor;
+        }
     }
    
 }

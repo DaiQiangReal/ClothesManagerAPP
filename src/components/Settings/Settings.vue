@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-25 21:31:41
+ * @LastEditTime: 2020-08-27 16:21:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/Settings/Settings.vue
@@ -37,6 +37,12 @@ export default {
             autoUpdate: true,
             darkmode: false,
         };
+    },
+    created(){
+        let bodyDom=document.getElementsByTagName('body')[0];
+        if(bodyDom.getAttribute("class").indexOf('dark-mode')){
+            this.darkmode=true;
+        }
     },
     methods: {
         onDarkmodeChange(val){
