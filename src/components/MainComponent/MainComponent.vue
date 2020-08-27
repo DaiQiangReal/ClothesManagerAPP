@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-25 14:07:18
+ * @LastEditTime: 2020-08-27 16:49:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/MainComponent.vue
@@ -60,9 +60,10 @@ export default {
     },
     async onUserChoseButtonClicked(){
         let historyHandle=this.$store.state.historyHandle;
-        await historyHandle.addHistory(new History(new Date().getTime(),
+        let historyObject=new History(new Date().getTime(),
         [this.userChosedCloth['上装'].clothID,this.userChosedCloth['下装'].clothID,this.userChosedCloth['鞋子'].clothID]
-        ,this.$refs.weather.weatherObject.data.forecast[0]))
+        ,this.$refs.weather.weatherObject.data.forecast[0]);
+        await this.$store.dispatch("addHistory",historyObject)
     }
   },
 };

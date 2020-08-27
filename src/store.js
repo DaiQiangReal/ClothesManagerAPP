@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-25 20:09:27
+ * @LastEditTime: 2020-08-27 16:49:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/store.js
@@ -39,6 +39,11 @@ const store = new Vuex.Store({
         let dispatch=context.dispatch;
         await dispatch('loadClothStorage');
    
+    },
+    async addHistory(context,historyObject){
+        let {state,dispatch}=context;
+        await state.historyHandle.addHistory(historyObject);
+        await dispatch('loadHistory');
     },
     async loadHistory(context){
         let state=context.state;
