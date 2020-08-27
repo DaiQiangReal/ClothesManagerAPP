@@ -1,8 +1,8 @@
 /*
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-27 22:25:35
- * @LastEditors: 代强
+ * @LastEditTime: 2020-08-27 22:27:35
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/Utils/takePhoto.js
  */
