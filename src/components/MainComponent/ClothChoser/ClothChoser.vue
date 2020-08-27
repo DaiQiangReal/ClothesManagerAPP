@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-16 00:31:34
- * @LastEditTime: 2020-08-25 13:12:43
+ * @LastEditTime: 2020-08-27 17:12:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/ClothChoser/ClothChoser.vue
@@ -37,9 +37,10 @@
 import SingleCloth from "../../Storage/SingleCloth/SingleCloth";
 import {getRamdomInt, getRandomInt} from "../../../Utils/tools" 
 import Vue from "vue";
-import { Overlay, Toast } from "vant";
+import { Overlay, Toast,Popup } from "vant";
 Vue.use(Toast);
 Vue.use(Overlay);
+Vue.use(Popup)
 export default {
   name: "ClothChoser",
   props: ["clothClass", "onUserChoseCloth"],
