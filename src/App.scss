@@ -1,6 +1,9 @@
 *{
     transition: background-color 1s;
 }
+.van-tab {
+    transition: background-color 0s;
+}
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity .3s

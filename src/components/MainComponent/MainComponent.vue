@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-27 21:25:02
+ * @LastEditTime: 2020-08-27 22:11:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/MainComponent.vue
@@ -36,6 +36,7 @@ import { getRandomInt } from "../../Utils/tools";
 import Weather from "./Weather/Weather";
 import ClothChoser from "./ClothChoser/ClothChoser";
 import {History} from "../../Utils/historyHandle"
+import { Toast } from 'vant';
 export default {
   name: "MainComponent",
   data() {
@@ -64,6 +65,8 @@ export default {
         [this.userChosedCloth['上装'].clothID,this.userChosedCloth['下装'].clothID,this.userChosedCloth['鞋子'].clothID]
         ,this.$refs.weather.weatherObject.data.forecast[0]);
         await this.$store.dispatch("addHistory",historyObject)
+        let toast=Toast.success("已记录");
+        setTimeout(()=>toast.clear(),800);
     }
   },
 };

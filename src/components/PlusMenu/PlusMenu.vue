@@ -1,17 +1,17 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-27 16:57:57
- * @LastEditors: 代强
+ * @LastEditTime: 2020-08-27 22:14:20
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/PlusMenu/PlusMenu.vue
 -->
 <template>
 <div id='plus-menu'>
     <div class="submenu" @click="(e)=>submenuClicked(0)">拍照</div>
-    <div class="submenu" @click="(e)=>submenuClicked(1)">拍照</div>
+    <!-- <div class="submenu" @click="(e)=>submenuClicked(1)">拍照</div>
     <div class="submenu" @click="(e)=>submenuClicked(2)">拍照</div>
-    <div class="submenu" @click="(e)=>submenuClicked(3)">拍照</div>
+    <div class="submenu" @click="(e)=>submenuClicked(3)">拍照</div> -->
   
 </div>
 </template>
