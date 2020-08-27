@@ -820,6 +820,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@capacitor/android@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.npm.taobao.org/@capacitor/android/download/@capacitor/android-2.2.1.tgz#20b722d634cb7b9e12aa6612e22f1f37dbbc57ca"
+  integrity sha1-ILci1jTLe54SqmYS4i8fN9u8V8o=
+
 "@capacitor/cli@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@capacitor/cli/download/@capacitor/cli-2.2.1.tgz#0d818bd14e5ddc88560722308b6a15c885993015"

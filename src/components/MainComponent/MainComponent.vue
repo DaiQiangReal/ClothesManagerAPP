@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-27 16:49:55
+ * @LastEditTime: 2020-08-27 21:25:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/MainComponent.vue

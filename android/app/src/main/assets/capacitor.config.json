@@ -1,0 +1,13 @@
+{
+  "appId": "com.daiqiang.clothesmanager",
+  "appName": "clothes-manager",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

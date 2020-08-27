@@ -6,9 +6,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "runweb": "node runweb.js"
+    "runAndroid": "node runAndroid.js"
   },
   "dependencies": {
+    "@capacitor/android": "2.2.1",
     "@capacitor/cli": "^2.2.1",
     "@capacitor/core": "^2.2.1",
     "@ionic/pwa-elements": "^3.0.0",
