@@ -8,4 +8,7 @@
 
 ## 截图
 
-![screenshot](./screenshots/screenShot.png)
+![screenshot](./screenshots/Screenshot_20200828_181244.jpg)
+![screenshot](./screenshots/Screenshot_20200828_181253.jpg)
+![screenshot](./screenshots/Screenshot_20200828_181257.jpg)
+![screenshot](./screenshots/Screenshot_20200828_181325.jpg)

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">clothes-manager</string>
+    <string name="app_name">我的衣柜</string>
     <string name="title_activity_main">clothes-manager</string>
     <string name="package_name">com.daiqiang.clothesmanager</string>
     <string name="custom_url_scheme">com.daiqiang.clothesmanager</string>
