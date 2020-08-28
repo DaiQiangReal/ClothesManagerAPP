@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-27 22:11:32
+ * @LastEditTime: 2020-08-28 17:09:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/MainComponent.vue
@@ -11,15 +11,15 @@
     <Weather ref="weather" />
     <div class="cloth-choser">
       <div class="cloth-class-span">上装</div>
-      <ClothChoser :clothClass="'上装'" :onUserChoseCloth="onUserChoseCloth" />
+      <ClothChoser :clothClass="'上装'" :onUserChoseCloth="onUserChoseCloth" id="choser-up"/>
     </div>
     <div class="cloth-choser">
       <div class="cloth-class-span">下装</div>
-      <ClothChoser :clothClass="'下装'"  :onUserChoseCloth="onUserChoseCloth"/>
+      <ClothChoser :clothClass="'下装'"  :onUserChoseCloth="onUserChoseCloth" id="choser-down"/>
     </div>
     <div class="cloth-choser">
       <div class="cloth-class-span">鞋子</div>
-      <ClothChoser :clothClass="'鞋子'" :onUserChoseCloth="onUserChoseCloth" />
+      <ClothChoser :clothClass="'鞋子'" :onUserChoseCloth="onUserChoseCloth" id="choser-shoes"/>
     </div>
     <div
       id="user-chose-button"
@@ -58,6 +58,9 @@ export default {
   methods: {
     onUserChoseCloth(clothClass,clothObject){
         this.userChosedCloth[clothClass]=clothObject;
+    },
+    log(...args){
+        console.log(...args);
     },
     async onUserChoseButtonClicked(){
         let historyHandle=this.$store.state.historyHandle;

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-16 00:31:34
- * @LastEditTime: 2020-08-27 22:21:46
+ * @LastEditTime: 2020-08-28 17:20:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/ClothChoser/ClothChoser.vue
@@ -19,6 +19,8 @@
             :show="modalShow"
             @click="modalShow = false"
             :lock-scroll="false"
+            :z-index="9999"
+            :duration="0.5"
         >
             <div class="cloth-list">
                 <SingleCloth
@@ -57,6 +59,9 @@ export default {
                 this.onUserChoseCloth(this.clothClass, this.clothObjectList[0]);
             });
         
+        
+    },
+    updated(){
     },
     methods: {
         onChoserClicked(clothIndex) {
@@ -66,6 +71,9 @@ export default {
                     this.clothClass,
                     this.clothObjectList[clothIndex]
                 );
+                this.modalShow=false;
+                let toast=Toast.success("已选择"+this.clothClass);
+                setTimeout(()=>toast.clear(),1000)
             } else {
                 new Promise((resolve, reject) => {
                     let toast = Toast.loading({
