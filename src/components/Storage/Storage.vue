@@ -11,8 +11,7 @@
                         :showClothDetail="showClothDetail"
                     /></div
             ></van-tab>
-            <van-tab title="下装"
-                >
+            <van-tab title="下装">
                 <div
                     v-for="clothObject in this.downClothObjectList"
                     :key="clothObject.clothID"
@@ -22,8 +21,7 @@
                         :showClothDetail="showClothDetail"
                     /></div
             ></van-tab>
-            <van-tab title="鞋子"
-                >
+            <van-tab title="鞋子">
                 <div
                     v-for="clothObject in this.shoesClothObjectList"
                     :key="clothObject.clothID"
@@ -188,11 +186,12 @@
 import "./css/Storage.scss";
 import SingleCloth from "./SingleCloth/SingleCloth";
 import { Cloth, ClothesStorageHandle } from "../../Utils/clothesStorage";
-import { Toast, Tab, Tabs } from "vant";
+import { Toast, Tab, Tabs, Dialog } from "vant";
 import Vue from "vue";
 Vue.use(Toast);
 Vue.use(Tab);
 Vue.use(Tabs);
+Vue.use(Dialog);
 export default {
     name: "Storage",
     components: { SingleCloth },
@@ -293,13 +292,24 @@ export default {
             }
         },
         async onDeleteButtonClicked() {
-            await this.$store.dispatch(
-                "deleteCloth",
-                this.clickClothProps.clothID
-            );
-            this.detailPopupShow = false;
-            let toast = Toast.success("已删除");
-            setTimeout(() => toast.clear(), 800);
+            Dialog.confirm({
+                title: "删除？",
+                message: "确认删除这个衣物？",
+                theme: "round-button",
+                confirmButtonText: "删除",
+                confirmButtonColor: "red",
+            })
+                .then(() => {
+                    this.$store.dispatch(
+                        "deleteCloth",
+                        this.clickClothProps.clothID
+                    );
+                })
+                .then(() => {
+                    this.detailPopupShow = false;
+                    let toast = Toast.success("已删除");
+                    setTimeout(() => toast.clear(), 800);
+                });
         },
     },
     computed: {
