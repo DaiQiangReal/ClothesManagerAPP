@@ -1,7 +1,7 @@
 <!--
  * @Author: 代强
  * @Date: 2020-08-13 22:24:04
- * @LastEditTime: 2020-08-28 17:09:06
+ * @LastEditTime: 2020-08-29 11:22:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ClothesManagerAPP/src/components/MainComponent/MainComponent.vue
@@ -51,22 +51,8 @@ export default {
         if(this.btnShadowBlur===25){
             this.btnShadowBlur=1;
         }else{
-            this.btnShadowBlur=25;
-        }
-    }, 1000);
-  },
-  methods: {
-    onUserChoseCloth(clothClass,clothObject){
-        this.userChosedCloth[clothClass]=clothObject;
-    },
-    log(...args){
-        console.log(...args);
-    },
-    async onUserChoseButtonClicked(){
-        let historyHandle=this.$store.state.historyHandle;
-        let historyObject=new History(new Date().getTime(),
-        [this.userChosedCloth['上装'].clothID,this.userChosedCloth['下装'].clothID,this.userChosedCloth['鞋子'].clothID]
-        ,this.$refs.weather.weatherObject.data.forecast[0]);
+
+his.$refs.weather.weatherObject.data.forecast[0]);
         await this.$store.dispatch("addHistory",historyObject)
         let toast=Toast.success("已记录");
         setTimeout(()=>toast.clear(),800);
